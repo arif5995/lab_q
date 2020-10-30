@@ -14,7 +14,15 @@ class CreateSuperAdminsTable extends Migration
     public function up()
     {
         Schema::create('super_admins', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_admin');
+            $table->integer('id_role')->default('1');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('no_hp');
+            $table->string('nama_depan');
+            $table->string('nama_belakang');
+            $table->dateTime('last_seen');
+            $table->integer('status_active');
             $table->timestamps();
         });
     }

@@ -14,7 +14,13 @@ class CreateAuthUsersTable extends Migration
     public function up()
     {
         Schema::create('auth_users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_auth');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->integer('id_role');
+            $table->integer('id_client');
+            $table->dateTime('last_seen');
+            $table->integer('status_active');
             $table->timestamps();
         });
     }

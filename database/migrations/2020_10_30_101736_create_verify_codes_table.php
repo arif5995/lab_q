@@ -14,7 +14,12 @@ class CreateVerifyCodesTable extends Migration
     public function up()
     {
         Schema::create('verify_codes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_verify');
+            $table->string('Code_lab')->unique();
+            $table->integer('id_client');
+            $table->integer('status');
+            $table->dateTime('verify_code');
+            $table->dateTime('send_code');
             $table->timestamps();
         });
     }

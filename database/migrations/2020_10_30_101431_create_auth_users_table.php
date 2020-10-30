@@ -21,7 +21,6 @@ class CreateAuthUsersTable extends Migration
             $table->integer('id_client');
             $table->dateTime('last_seen');
             $table->integer('status_active');
-            $table->timestamps();
         });
     }
 

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Register;
 use Illuminate\Http\Request;
 
-class RegisterController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class RegisterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Register  $register
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Register $register)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class RegisterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Register  $register
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Register $register)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class RegisterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Register  $register
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Register $register)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class RegisterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Register  $register
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Register $register)
+    public function destroy($id)
     {
         //
     }

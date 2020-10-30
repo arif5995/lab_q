@@ -23,7 +23,6 @@ class CreateSuperAdminsTable extends Migration
             $table->string('nama_belakang');
             $table->dateTime('last_seen');
             $table->integer('status_active');
-            $table->timestamps();
         });
     }
 

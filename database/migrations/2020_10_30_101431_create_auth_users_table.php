@@ -15,6 +15,10 @@ class CreateAuthUsersTable extends Migration
     {
         Schema::create('auth_users', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_role');
+            $table->integer('id_client');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }

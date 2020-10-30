@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSuperAdminsTable extends Migration
+class CreateMitraCompanyUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateSuperAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('super_admins', function (Blueprint $table) {
+        Schema::create('mitra_company_users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('id_role');
+            $table->integer('id_client');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('company_name');
+            $table->string('kode_pos');
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
@@ -29,6 +34,6 @@ class CreateSuperAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('super_admins');
+        Schema::dropIfExists('mitra_company_users');
     }
 }

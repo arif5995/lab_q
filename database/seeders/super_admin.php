@@ -24,8 +24,15 @@ class super_admin extends Seeder
             'nama_belakang' => 'Albantani',
             'last_seen' => now(),
             'status_active' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
+        ]);
+
+        DB::table('auth_users')->insert([
+            'email' => 'superadmin@gmail.com',
+            'password' => Hash::make('admin123!'),
+            'id_role' => 1,
+            'id_client' => 0,
+            'last_seen' => now(),
+            'status_active' => 1,
         ]);
     }
 }

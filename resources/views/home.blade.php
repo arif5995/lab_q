@@ -104,7 +104,7 @@
             @csrf
           <div class="form-group">
             <label>Email address</label>
-            <input type="email" name="email" class="form-control" placeholder="yourname@yourmail.com" value="{{old('email')}}">
+            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="yourname@yourmail.com" value="{{old('email')}}">
             @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -116,14 +116,14 @@
               <label class="mg-b-0-f">Password</label>
               <a href="" class="tx-13">Forgot password?</a>
             </div>
-            <input type="password" name="password" class="form-control" placeholder="Enter your password" value="{{old('password')}}">
+            <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" placeholder="Enter your password" value="{{old('password')}}">
             @error('password')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
           </div>
-          <button class="btn btn-brand-02 btn-block" >Sign In</button>
+          <button class="btn btn-brand-02 btn-block" type="submit" >Sign In</button>
         </form>
           <div class="divider-text">or</div>
           {{-- <button class="btn btn-outline-facebook btn-block">Sign In With Facebook</button>

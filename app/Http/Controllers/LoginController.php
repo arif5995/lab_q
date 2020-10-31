@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\auth_user;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -35,6 +38,21 @@ class LoginController extends Controller
     public function store(Request $request)
     {
         //
+        $email = $request->email;
+        $password = $request->password;
+        $auth = new auth_user;
+        $useer = Auth::auth_user();
+
+        // if ($auth->where('email', $email)->first()) {
+        //     if (Hash::check($password == $auth->password) && $auth->status_active == 1) {
+        //         if ($auth->id_role == 1) {
+        //         }
+        //     } else {
+        //         return redirect('/')->with('alert', 'Akun Anda Tidak Aktif');
+        //     }
+        // } else {
+        //     return redirect('/')->with('alert', 'Cek Email Anda');
+        // }
     }
 
     /**

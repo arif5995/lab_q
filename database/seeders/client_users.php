@@ -30,5 +30,23 @@ class client_users extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('auth_users')->insert([
+            'email' => 'jihan@gmail.com',
+            'password' => Hash::make('jihan123!'),
+            'id_role' => 2,
+            'id_client' => 1,
+            'last_seen' => now(),
+            'status_active' => 1,
+        ]);
+
+        DB::table('auth_users')->insert([
+            'email' => 'noaktif@gmail.com',
+            'password' => Hash::make('jihan123!'),
+            'id_role' => 2,
+            'id_client' => 1,
+            'last_seen' => now(),
+            'status_active' => 0,
+        ]);
     }
 }

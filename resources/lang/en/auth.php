@@ -15,5 +15,8 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'no_active' => 'Akun Anda Tidak Aktif',
+    'cek_email' => 'Cek Email Anda',
+    'cek_password' => 'Cek Password Anda'
 
 ];

@@ -24,8 +24,6 @@ class super_admin extends Seeder
             'nama_belakang' => 'Albantani',
             'last_seen' => now(),
             'status_active' => 1,
-            'created_at' => now(),
-            'updated_at' => now(),
         ]);
     }
 }

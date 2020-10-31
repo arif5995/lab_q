@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Register;
 use Illuminate\Http\Request;
+use App\Models\client_user;
 
 class RegisterController extends Controller
 {
@@ -14,7 +15,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
+       return view('register');
     }
 
     /**
@@ -35,7 +36,16 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name_company' => 'required',
+            'no_hp' => 'required',
+            'nama_depan' => 'required',
+            'nama_belakang' => 'required',
+            'username' => 'required',
+            'email' => 'required|string|email|max:255|unique:client_users',
+            'password' => 'required|string|min:8|confirmed'
+        ]);
+
     }
 
     /**
@@ -81,5 +91,32 @@ class RegisterController extends Controller
     public function destroy(Register $register)
     {
         //
+    }
+
+    public function postRegister(Request $request)
+    {
+
+        // $validatedData = $request->validate([
+        //     'name_company' => 'required',
+        //     'no_hp' => 'required',
+        //     'nama_depan' => 'required',
+        //     'nama_belakang' => 'required',
+        //     'username' => 'required',
+        //     'email' => 'required|string|email|max:255|unique:client_users',
+        //     'password' => 'required|string|min:8|confirmed',
+        // ]);
+        
+        client_user::create([
+            'name_company'=> $request->name_company,
+            'no_hp'=> $request->no_hp,
+            'nama_depan'=>$request->nama_depan,
+            'nama_belakang'=>$request->nama_belakang,
+            'username'=>$request->username,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'status_auth'=>0,
+            'status_active'=>0
+        ]);
+        return redirect('/')->with('status', 'Email anda sedang diverifikasi');
     }
 }

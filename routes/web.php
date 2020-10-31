@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +20,6 @@ Route::get('/', function () {
 });
 
 Route::view('/register', 'register');
+Route::view('/admin', 'super_admin/admin');
+Route::view('/dashboard', 'layouts/dashboard');
+Route::post('/', [AuthController::class, 'postLogin']);
